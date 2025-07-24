@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App - Notes</title>
+    <link rel="stylesheet" href="./styleNotes.css" />
+</head>
+
+    <body>
+        <header class="header">
+            <img src="notes_icon2.png" class="header-logo">
+            <h1>Notes App</h1>  
+        </header>
+        <h1>My Notes...</h1>
+
+
+
+
+        
+
+            <div class="add-note-section">
+                <form class="add-note-form" id="noteForm">
+                <div class="form-group">
+                    <label for="noteTitle">Note Title</label>
+                    <input type="text" id="noteTitle" name="title" placeholder="Enter your note title..." required>
+                </div>
+                <div class="form-group">
+                    <label for="noteContent">Note Content</label>
+                    <textarea id="noteContent" name="content" placeholder="Write your note here..." required></textarea>
+                </div>
+                <div class="form-buttons">
+                    <button type="button" class="btn btn-secondary" id="clearBtn">Clear</button>
+                
+                    <button type="submit" class="btn btn-primary">Add Note</button>
+                </div>
+            </form>
+        
+
+                
+                <div class="notes-list" id="notesList">
+                    <div class="empty-state" id="emptyState">
+                        <div class="empty-state-icon">📝</div>
+                        <h3>No notes yet</h3>
+                        <p>Create your first note above to get started!</p>
+                    </div>
+                </div>
+            </div>
+
+                
+
+
+        
+        
+        
+
+
+    </body>
+</html>
