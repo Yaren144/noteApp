@@ -5,33 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notes App - Notes</title>
      <link rel="stylesheet" href="./styleNotes.css" />
-    </head>
+</head>
 
-    <body>
+    <body>  
         <header class="header">
             <img src="notes_icon2.png" class="header-logo">
             <h1>Notes App</h1>  
         </header>
-        <h1>My Notes</h1>
-        <div class="auth-buttons">
-            <div class="add-note-section">
-                <a href="add_note.html" class="add-note-btn">
-                <svg class="add-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 5v14M5 12h14"/></svg>Add New Note</a>
+
+        <main class="container">
+            <div class="notes-header">
+               <h1>My Notes</h1> 
             </div>
-        <!-- /*DELETE NOTE AFTER A NOTE SCREEN İS OPENED*/ -->
-         <!-- <div class="delete-note-section">
-            <a href="delete_note.html" class="delete-note-btn">
-            <svg class="delete-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-             <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M10 11v6M14 11v6"/></svg>Delete Note</a>
-        </div> -->
 
-
-        </div>
+            <div class="add-note-btn">
+                <a href="add_note.html" id="addNoteBtn">
+                    <svg class="add-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 5v14M5 12h14"/>
+                    </svg>
+                    Add New Note
+                </a>
+            </div>
+    
+            <div  id="notesContainer">
+            <!-- Notes will appear here -->
+                <div class="empty-state" id="emptyState">
+                <p>No notes yet. Click "Add New Note" to create your first note!</p>
+                </div>
+            </div>
         
-        
-        
-
+        </main>
+            <script src="main.js" defer></script>
+            <script src="notes.js" defer></script>
 
     </body>
 </html>

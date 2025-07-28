@@ -3,45 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notes App - Login</title>
-     <link rel="stylesheet" href="./styleNotes.css" />
+    <title>Notes App - Welcome</title>
+    <link rel="stylesheet" href="./styleNotes.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
+<body>
+    
+    <header class="header">
+        <img src="notes_icon2.png" alt="Notes App Logo" class="header-logo">
+        <h1>Notes App</h1>  
+         <nav class="header-nav">
+        </nav>
+    
+    </header>
 
-    <body>
-
-        
-        <header class="header">
-            <img src="notes_icon2.png" class="header-logo">
-            <h1>Notes App</h1>  
-        </header>
-
-        <div class="container">
-            <div class="welcome-section">
-                <img src="pen.jpeg" class="photos">   
-                <h2 class="welcome-title"></h2>Enter your notes, memorize your life.</h2>
-                
-                
-                <div class="auth-buttons">
-
-                    <div class="login-section">
-                        <a href="login.html" class="add-note-btn" >
-                            User Login
-                        </a>
-
-                    </div>
-                    
-                        <div class="register-section">
-                            <a href="register_page.html" class="add-note-btn" >
-                                New User? Register now 
-
-                            </a>
-
-                        </div>
-                
-                </div>
+    
+    <main class="container">
+        <section class="welcome-section">
+            <img src="pen.jpeg" alt="Notes App Illustration" class="photos">
+            <h2 class="welcome-title">Enter your notes, memorize your life.</h2>
+            
+            <div class="auth-buttons">
+                <a href="login_page.html" class="btn btn-primary">
+                    User Login
+                </a>
+                <a href="register_page.html" class="btn btn-primary">
+                    New User? Register now
+                </a>
             </div>
-        </div>
+        </section>
+    </main>
 
-        <script src="main.js"></script>
-    </body>
+    
+    <script src="main.js" defer></script>
+</body>
 </html>
