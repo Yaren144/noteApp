@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App - Login</title>
+    <link rel="stylesheet" href="./styleNotes.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <header class="header">
+        <img src="notes_icon2.png" alt="Notes App Logo" class="header-logo">
+        <h1>Notes App</h1>  
+        <nav class="header-nav">
+        <a href="main_page.html" class="auth-button">Back</a>
+        </nav>
+    </header>
+
+    
+    <main class="container">
+        <section class="login-container">
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="userName">Username:</label>
+                    <input type="text" id="userName" required placeholder="Enter your username">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" required placeholder="Enter your password">
+                </div>
+
+                <button type="submit" class="btn btn-primary full-width mt-2">
+                    Login
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <script src="api.js"></script>
+    <script src="main.js" defer></script>
+    <script src="login.js" defer></script>
+</body>
+</html>
