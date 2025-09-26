@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Check login status
-    const token = localStorage.getItem('notesToken');
+    const token = localStorage.getItem('notesAppToken');
     if (!token) {
-        window.location.href = 'login_page.html';
+        window.location.href = 'login.html';
         return;
     }
 

@@ -2,23 +2,24 @@
 class NotesAPI {
     constructor() {
         this.baseURL = 'http://localhost:3000/api';
-        this.token = localStorage.getItem('notesApp_token') || null;
+        this.token = localStorage.getItem('notesAppToken') || null;
     }
 
-    // Helper method for making API requests
     async makeRequest(endpoint, options = {}) {
         const url = `${this.baseURL}${endpoint}`;
         const config = {
+            method: options.method || 'GET',
             headers: {
                 'Content-Type': 'application/json',
+                ...(this.token && { 'Authorization': `Bearer ${this.token}` }),
                 ...options.headers
-            },
-            ...options
+            }
         };
 
-        // Add authorization header if token exists
-        if (this.token) {
-            config.headers.Authorization = `Bearer ${this.token}`;
+        if (options.body) {
+            config.body = typeof options.body === 'string'
+                ? options.body
+                : JSON.stringify(options.body);
         }
 
         try {
@@ -26,46 +27,71 @@ class NotesAPI {
             const data = await response.json();
 
             if (!response.ok) {
-                throw new Error(data.error || 'Request failed');
+                const errorMsg = data.error || 
+                    (response.status === 401 ? 'Invalid credentials' : 'Request failed');
+                throw new Error(errorMsg);
             }
 
             return data;
         } catch (error) {
-            console.error('API Request failed:', error);
+            console.error(`API Request to ${endpoint} failed:`, error);
             throw error;
         }
     }
 
-    // Login method
-    async login(password) {
-        try {
-            const response = await this.makeRequest('/login', {
-                method: 'POST',
-                body: JSON.stringify({ password })
-            });
-
-            // Store token for future requests
-            this.token = response.token;
-            localStorage.setItem('notesApp_token', this.token);
-
-            return response;
-        } catch (error) {
-            throw new Error('Invalid password');
+    async register(username, email, password) {
+    try {
+        const response = await this.makeRequest('/register', {
+            method: 'POST',
+            body: JSON.stringify({ username, email, password })
+        });
+        
+        if (!response.token) {
+            throw new Error('Registration failed - no token received');
         }
+        
+        this.token = response.token;
+        localStorage.setItem('notesAppToken', this.token);
+        return response;
+    } catch (error) {
+        console.error('Registration failed:', error);
+        throw error;
     }
-
-    // Logout method
+}
+    
+    
+    
+    async login(username, password) {
+    try {
+        const response = await this.makeRequest('/login', {
+            method: 'POST',
+            body: JSON.stringify({ username, password })
+        });
+        
+        if (!response.token) {
+            throw new Error('No token received');
+        }
+        
+        this.token = response.token;
+        localStorage.setItem('notesAppToken', this.token);
+        return response;
+    } catch (error) {
+        console.error('Login failed:', error);
+        throw error;
+    }
+}
+    
     logout() {
         this.token = null;
-        localStorage.removeItem('notesApp_token');
+        localStorage.removeItem('notesAppToken');
     }
 
-    // Get all notes
+
     async getNotes() {
         return await this.makeRequest('/notes');
     }
 
-    // Add a new note
+    
     async addNote(content, title = '') {
         return await this.makeRequest('/notes', {
             method: 'POST',
@@ -73,7 +99,7 @@ class NotesAPI {
         });
     }
 
-    // Delete a note
+
     async deleteNote(noteId) {
         return await this.makeRequest(`/notes/${noteId}`, {
             method: 'DELETE'

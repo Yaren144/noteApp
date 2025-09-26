@@ -1,0 +1,58 @@
+[33mcommit f3d1a126f646ee2b02b744f1f0393bad1c039a67[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Ya44 <yarendeveci477@gmail.com>
+Date:   Wed Aug 6 13:41:14 2025 +0300
+
+    feat: add backend integration with MySQL and token-based auth
+    
+    - Integrated Express backend with MySQL for persistent note storage
+    - Added token-based authentication using environment variables
+    - Created NotesAPI class for frontend-backend communication
+    - Implemented full CRUD operations (GET, POST, DELETE)
+    - Protected note routes with middleware
+    - Separated DB logic into mysql-database.js for maintainability
+    - Improved error handling across backend and frontend
+
+[33mcommit 9c52d16a4450bd212e1d601966846b47250dfa79[m
+Author: Ya44 <yarendeveci477@gmail.com>
+Date:   Mon Jul 28 16:27:35 2025 +0300
+
+    feat: implement complete notes functionality with persistence
+    
+    - Added localStorage integration for note saving/loading
+    - Fixed note display by standardizing date field to 'date'
+    - Implemented proper note card styling with glassmorphism
+    - Added confirmation dialogs for note deletion
+    - Improved initialization flow for single-user data
+    - Enhanced empty state handling in notes view
+    - Maintained simple auth flow for single user
+    
+    fix: resolve critical issues
+    - Fixed notes not appearing after creation
+    - Corrected data persistence on page refresh
+    - Fixed delete functionality
+    - Resolved styling inconsistencies
+    
+    refactor: clean up code organization
+    - Standardized variable naming (date/createdAt)
+    - Improved error handling
+    - Optimized DOM updates
+    - Enhanced code comments
+    
+    docs: update style documentation
+    - Added missing styles for note cards
+    - Documented color scheme variables
+    - Noted single-user architecture decisions
+    
+    BREAKING CHANGE: None
+
+[33mcommit 07f59610b5a4ccc63c24b45fb22191944bc85be2[m
+Author: Ya44 <yarendeveci477@gmail.com>
+Date:   Thu Jul 24 16:48:32 2025 +0300
+
+    feat: add new JavaScript files for UI components
+
+[33mcommit c28a2b86b547ebbb283958c6983ffc3b1e31fc72[m
+Author: Ya44 <yarendeveci477@gmail.com>
+Date:   Fri Jul 18 15:09:48 2025 +0300
+
+    Initial commit: Basic notes app structure

@@ -1,25 +1,26 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Check login status
-    const token = localStorage.getItem('notesToken');
+    const token = localStorage.getItem('notesAppToken');
+    
+
     if (!token) {
-        window.location.href = 'login_page.html';
+        window.location.href = 'login.html';
         return;
     }
 
     // Load notes from backend
     loadNotes();
-
     // Event listeners for buttons
     document.getElementById('logoutBtn').addEventListener('click', function() {
-        localStorage.removeItem('notesToken');
-        window.location.href = 'login_page.html';
+        localStorage.removeItem('notesAppToken');
+        window.location.href = 'login.html';
     });
 
     // No need for addNoteBtn listener since it's handled via HTML link
 });
 
 async function loadNotes() {
-    const token = localStorage.getItem('notesToken');
+    const token = localStorage.getItem('notesAppToken');
     try {
         const response = await fetch('/api/notes', {
             headers: {
@@ -29,7 +30,7 @@ async function loadNotes() {
         
         if (!response.ok) {
             if (response.status === 401) {
-                window.location.href = 'login_page.html';
+                window.location.href = 'login.html';
             }
             throw new Error('Failed to load notes');
         }
@@ -89,7 +90,7 @@ function displayNotes(notes) {
 }
 
 async function deleteNote(noteId) {
-    const token = localStorage.getItem('notesToken');
+    const token = localStorage.getItem('notesAppToken');
     try {
         const response = await fetch(`/api/notes/${noteId}`, {
             method: 'DELETE',
